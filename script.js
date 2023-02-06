@@ -65,8 +65,51 @@ header.append(cookie);
 // header.after(cookie);
 
 //?Delete Elements
+
 document
   .querySelector('.btn--close--cookie')
   .addEventListener('click', function () {
     cookie.remove();
   });
+
+//?Styles
+
+cookie.style.backgroundColor = '#37383d';
+cookie.style.width = '120%';
+
+console.log(cookie.style.height);
+console.log(cookie.style.width);
+console.log(cookie.style.backgroundColor);
+
+console.log(getComputedStyle(cookie).color);
+console.log(getComputedStyle(cookie).height);
+
+cookie.style.height =
+  Number.parseFloat(getComputedStyle(cookie).height, 10) + 30 + 'px';
+// console.log(cookie.style.height);
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+//? Attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+//getAttribute and setAttribute
+
+const link = document.querySelector('.twitter-link');
+console.log(link.href);
+//alternate way
+console.log(link.getAttribute('href'));
+
+//?Data attribute
+
+// console.log(logo.dataset.versionNumber);
+
+//Classes
+logo.classList.add();
+logo.classList.remove();
+logo.classList.toggle('c');
+logo.classList.contains('c');
+logo.className = 'jonas';
