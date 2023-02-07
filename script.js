@@ -72,6 +72,7 @@ document
     cookie.remove();
   });
 
+/*
 //?Styles
 
 cookie.style.backgroundColor = '#37383d';
@@ -113,3 +114,36 @@ logo.classList.remove();
 logo.classList.toggle('c');
 logo.classList.contains('c');
 logo.className = 'jonas';
+*/
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1co = section1.getBoundingClientRect();
+  console.log(s1co);
+
+  console.log(e.target.getBoundingClientRect());
+  console.log(window.pageXOffset, window.pageYOffset);
+
+  console.log(
+    'Height/Width',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  //Scrolling
+  //method 1
+  // window.scrollTo(
+  //   s1co.left + window.pageXOffset,
+  //   s1co.top + window.pageYOffset
+  // );
+  //method 2
+  // window.scrollTo({
+  //   left: s1co.left + window.pageXOffset,
+  //   top: s1co.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+  //method 3
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
