@@ -136,6 +136,70 @@ const handleHover = function (e) {
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
 
+//?Sticky navigation
+// const initCords = section1.getBoundingClientRect();
+// console.log(initCords);
+
+// window.addEventListener('scroll', function (e) {
+//   console.log(window.scrollY);
+
+//   if (window.scrollY > initCords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
+
+//?Intersection observer API
+
+// const obsCallBck = function (entries,observer) {
+//   entries.forEach(entry => {console.log(entry);})
+// };
+
+// const obsOpt = {
+//   root: null,
+//   threshold: (0, 0.2),
+// };
+
+// const observer = new IntersectionObserver(obsCallBck, obsOpt);
+// observer.observe(section1);
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+// console.log(navHeight);
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  // console.log(entry);
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerobserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+headerobserver.observe(header);
+
+//? Reveal Section
+const allSections = document.querySelectorAll('.section');
+
+const revealSec = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSec, {
+  root: null,
+  threshold: 0.15,
+});
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
 ////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /*
@@ -157,7 +221,7 @@ const allButtons = document.getElementsByTagName('button');
 
 //? creating and inserting elements
 
-//mdn document
+//mdn document;
 
 const cookie = document.createElement('div');
 cookie.classList = 'cookie-message';
