@@ -1,16 +1,16 @@
 /* The page is NOT responsive. You can implement responsiveness yourself if you wanna have some fun 😃 */
 
 :root {
-  --color-primary: #5ec576;
+  --color-primary: #d277e9;
   --color-secondary: #ffcb03;
   --color-tertiary: #ff585f;
-  --color-primary-darker: #4bbb7d;
+  --color-primary-darker: #923ba3;
   --color-secondary-darker: #ffbb00;
   --color-tertiary-darker: #fd424b;
   --color-primary-opacity: #5ec5763a;
   --color-secondary-opacity: #ffcd0331;
   --color-tertiary-opacity: #ff58602d;
-  --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
+  --gradient-primary: linear-gradient(to top left, #b339b3, #c6ce5f);
   --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
 }
 
@@ -458,7 +458,7 @@ h4 {
 }
 
 .dots__dot--active {
-  /* background-color: #fff; */
+  /* background-color: #ffffff; */
   background-color: #888;
   opacity: 1;
 }
@@ -509,7 +509,7 @@ h4 {
 }
 
 .testimonial__name {
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   font-weight: 500;
   align-self: end;
   margin: 0;
